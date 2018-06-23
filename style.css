@@ -1,0 +1,14 @@
+// prevents left/right arrows from moving on change
+#thisday,
+#thisweek {
+    display: inline-block;
+    text-align: center;
+}
+
+#thisday {
+    min-width: 299px;
+}
+
+#thisweek {
+    min-width: 184px;
+}
