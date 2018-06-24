@@ -31,7 +31,7 @@ function buildDefaultNode({ storage, node, type }) {
     );
 }
 
-function getDefaultValue({ node, type }) {
+function saveDefaultValue({ node, type }) {
     return {
         value: $(node).value,
         "select-button": $(node).classList.contains('btn-lit'),
@@ -52,7 +52,7 @@ Object.values(defaultButtonConfigs).forEach(({ placement, storage, node, type })
 $All('.default-button').forEach((el) => {
     el.addEventListener('click', ({ target: el }) => {
         const key = el.getAttribute('data-storage');
-        const value = getDefaultValue({ node: el.getAttribute('data-node'), type: el.getAttribute('data-type') });
+        const value = saveDefaultValue({ node: el.getAttribute('data-node'), type: el.getAttribute('data-type') });
 
         defaultsStorage.set({
             [key]: value,
