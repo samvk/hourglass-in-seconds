@@ -8,6 +8,7 @@
       "16": "img/icon/icon-16.png",
       "48": "img/icon/icon-48.png"
   },
+  "permissions": [ "storage" ],
   "content_scripts": [{
       "matches": [ "https://sec.kmbs.us/version2/lab/hourglass/*" ],
       "css": [ "style.css" ],

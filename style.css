@@ -12,3 +12,14 @@
 #thisweek {
     min-width: 184px;
 }
+
+.temp-status {
+    color: #FF8C84;
+}
+[src="img/set-default.png"] {
+    filter: hue-rotate(180deg) saturate(2); // edit image to pink
+
+}
+[src="img/set-default.png"]:active {
+    filter: hue-rotate(180deg) saturate(3.5);
+}
