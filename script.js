@@ -1,3 +1,15 @@
+// ADD MORE DEFAULT BUTTONS
+
+function addTags(tags) {}
+    $tagsContainer = $('#tags .taggle_list');
+    [...new Set(tags)].forEach((tag) => {
+        $tagNode = `<li class="taggle"><span class="taggle_text">${tag}</span><a href="javascript:void(0)" class="close">r</a>
+            <input type="hidden" value="${tag}" name="taggles[]">
+        </li>`;
+
+        $tagsContainer.insertAdjacentHTML('afterbegin', $tagNode);
+    });
+}
 
 defaultsStorage.get((defaults) => {
     if (defaults.capitalize) {
@@ -13,6 +25,9 @@ defaultsStorage.get((defaults) => {
     if (defaults.details) {
         $('#details').value = defaults.details;
     }
+    // if (defaults.tags) {
+        // addTags(defaults.tags);
+    // }
 });
 
 function buildDefaultNode({ storage, node, type }) {
@@ -35,6 +50,7 @@ function saveDefaultValue({ node, type }) {
     return {
         value: $(node).value,
         "select-button": $(node).classList.contains('btn-lit'),
+        // tags: [...$All(`${node} .taggle_text`)].map((el) => el.textContent),
     }[type];
 }
 
@@ -43,6 +59,7 @@ const defaultButtonConfigs = [
     { placement: '#details', storage: 'details', node: '#details', type: 'value' },
     { placement: '#yes-select-button', storage: 'capitalize', node: '#yes-select-button', type: 'select-button' },
     { placement: '#yes-int-select-button', storage: 'international', node: '#yes-int-select-button', type: 'select-button' },
+    // { placement: '#tags', storage: 'tags', node: '#tags', type: 'tags' },
 ];
 
 Object.values(defaultButtonConfigs).forEach(({ placement, storage, node, type }) => {
