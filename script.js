@@ -1,24 +1,4 @@
-// UTILS
-const $ = (...args) => document.querySelector(...args);
-const $All = (...args) => document.querySelectorAll(...args);
 
-const storage = chrome.storage.sync;
-// END
-
-// STORAGE METHODS
-const defaultsStorage = {
-    get(callback = () => {}) {
-        storage.get(['hours', 'details', 'capitalize', 'international'], (defaults) => {
-            callback(defaults);
-        });
-    },
-    set(defaults) {
-        storage.set(defaults);
-    },
-};
-// END
-
-// MORE DEFAULT BUTTONS
 defaultsStorage.get((defaults) => {
     if (defaults.capitalize) {
         $('#yes-select-button').click();

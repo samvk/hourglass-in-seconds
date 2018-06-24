@@ -12,6 +12,6 @@
   "content_scripts": [{
       "matches": [ "https://sec.kmbs.us/version2/lab/hourglass/*" ],
       "css": [ "style.css" ],
-      "js": [ "script.js" ]
+      "js": [ "utils.js", "storage.js", "script.js" ]
     }]
 }
