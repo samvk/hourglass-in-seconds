@@ -1,6 +1,6 @@
 // ADD MORE DEFAULT BUTTONS
 
-function addTags(tags) {}
+function addTags(tags) {
     $tagsContainer = $('#tags .taggle_list');
     [...new Set(tags)].forEach((tag) => {
         $tagNode = `<li class="taggle"><span class="taggle_text">${tag}</span><a href="javascript:void(0)" class="close">r</a>
