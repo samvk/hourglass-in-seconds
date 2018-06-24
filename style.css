@@ -23,3 +23,8 @@
 [src="img/set-default.png"]:active {
     filter: hue-rotate(180deg) saturate(3.5);
 }
+
+/* hide "info" button */
+[src="img/question.png"] {
+    display: none;
+}
