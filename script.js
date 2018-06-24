@@ -59,4 +59,3 @@ $All('.default-button').forEach((el) => {
         });
     });
 });
-// END
