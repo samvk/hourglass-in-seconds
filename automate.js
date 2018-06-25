@@ -13,12 +13,12 @@ function getDayOfTheWeek(date) {
 }
 
 function completeTimesheet(config) {
+    config = { blacklist: [], ...config }; // defaults
     function fillOutTimesheet() {
         function continueLoop() {
             $('.input-group-addon').click();
             setTimeout(() => {
                 const $nextDayNode = $('.active.day').nextElementSibling || $('.active.day').parentElement.nextElementSibling.firstElementChild;
-                console.log('$nextDayNode', $nextDayNode);
                 $nextDayNode.click();
                 setTimeout(fillOutTimesheet, 0);
             }, 100);
@@ -28,9 +28,6 @@ function completeTimesheet(config) {
         const date = new Date( dateSlashesToDashes($('#date1').value) );
 
         const blackListDates = config.blacklist.map((blacklistDate) => +new Date(blacklistDate));
-        console.log('blackListDates', blackListDates);
-        console.log('+date', +date);
-        console.log('blackListDates.includes(+date)', blackListDates.includes(+date));
         if ( blackListDates.includes(+date) ) {
             continueLoop();
         }
@@ -55,10 +52,6 @@ function completeTimesheet(config) {
             // $('#activity-button').click();
         });
 
-        console.log('date', date);
-        console.log('+date', +date);
-        console.log('+new Date(config.endDate)', +new Date(config.endDate));
-        console.log('+date >= +new Date(config.endDate)', +date >= +new Date(config.endDate));
         if (+date < +new Date(config.endDate)) {
             continueLoop();
         }
