@@ -28,3 +28,15 @@
 [src="img/question.png"] {
     display: none;
 }
+
+/* fix spacing for date component */
+.date.input-group[class*=col-] {
+    padding-right: inherit;
+    float: inherit;
+}
+
+.next-day-button {
+    font-size: 20px;
+    color: #6EBEC4;
+    cursor: pointer;
+}

@@ -76,3 +76,28 @@ $All('.default-button').forEach((el) => {
         });
     });
 });
+
+// ADD "NEXT BUSINESS DAY" BUTTON
+function nextDay() {
+    $('.input-group-addon').click();
+    const $nextDayNode = (() => {
+        const $today = $('.active.day');
+        const tomorrowWeekend = !($today.nextElementSibling && $today.nextElementSibling.nextElementSibling);
+
+        if (tomorrowWeekend) {
+            return $today.parentElement.nextElementSibling.children[1];
+        }
+        return $today.nextElementSibling;
+    })();
+    $nextDayNode.click();
+}
+
+$nextDayButton = `<div class="col-sm-1 col-md-1">
+    <span class="next-day-button" title="Next business day">
+        <span class="glyphicon glyphicon-chevron-right"></span>
+    </span>
+</div>`;
+
+$('#datepicker1').insertAdjacentHTML('afterend', $nextDayButton);
+
+$('.next-day-button').addEventListener('click', nextDay);
