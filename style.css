@@ -40,3 +40,30 @@
     color: #6EBEC4;
     cursor: pointer;
 }
+
+/* save animation */
+@keyframes saved {
+    8% {
+        transform: translate3d(0, -10px, 0);
+    }
+    15%,
+    17% {
+        opacity: 1;
+        transform: translate3d(0, 20px, 0);
+    }
+    37%,
+    60% {
+        opacity: 0;
+        transform: translate3d(0, -2000px, 0);
+    }
+    60% {
+        transform: translate3d(0, 0, 0);
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.saved {
+    animation: saved 3s;
+}

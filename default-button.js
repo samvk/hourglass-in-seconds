@@ -74,6 +74,9 @@ $All('.default-button').forEach((el) => {
         defaultsStorage.set({
             [key]: value,
         });
+
+        el.classList.remove('saved');
+        setTimeout(() => el.classList.add('saved'), 0);
     });
 });
 
