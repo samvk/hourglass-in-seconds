@@ -21,6 +21,10 @@ defaultsStorage.get((defaults) => {
     $('#time-units > [value="h"]').selected = true; // always choose hours
     if (defaults.hours) {
         $('#time').value = defaults.hours;
+    } else {
+        if (parseInt($('#time').value) === 0) {
+            $('#time').value = ''; // set value to '' not '0'
+        }
     }
     if (defaults.details) {
         $('#details').value = defaults.details;
