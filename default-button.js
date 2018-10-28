@@ -84,19 +84,36 @@ $All('.default-button').forEach((el) => {
     });
 });
 
-// ADD "NEXT BUSINESS DAY" BUTTON
-function nextDay() {
-    $('.input-group-addon').click();
-    const $nextDayNode = (() => {
-        const $today = $('.active.day');
-        const tomorrowWeekend = !($today.nextElementSibling && $today.nextElementSibling.nextElementSibling);
+function submitForm() {
+    $('#activity-button').click();
+}
 
-        if (tomorrowWeekend) {
-            return $today.parentElement.nextElementSibling.children[1];
-        }
-        return $today.nextElementSibling;
-    })();
-    $nextDayNode.click();
+// ADD "NEXT BUSINESS DAY" BUTTON
+function changeDay(direction = 1) {
+    $('.input-group-addon').click();
+    const $today = $('.active.day');
+
+    let $changeDayNode;
+    if (direction === 1) {
+        $changeDayNode = (() => {
+            const tomorrowWeekend = !($today.nextElementSibling && $today.nextElementSibling.nextElementSibling);
+
+            if (tomorrowWeekend) {
+                return $today.parentElement.nextElementSibling.firstChild.nextElementSibling;
+            }
+            return $today.nextElementSibling;
+        })();
+    } else if (direction === -1) {
+        $changeDayNode = (() => {
+            const yesterdayWeekend = !($today.previousElementSibling && $today.previousElementSibling.previousElementSibling );
+
+            if (yesterdayWeekend) {
+                return $today.parentElement.previousElementSibling.lastChild.previousElementSibling;
+            }
+            return $today.previousElementSibling;
+        })();
+    }
+    $changeDayNode.click();
 }
 
 $nextDayButton = `<div class="col-sm-1 col-md-1">
@@ -107,4 +124,24 @@ $nextDayButton = `<div class="col-sm-1 col-md-1">
 
 $('#datepicker1').insertAdjacentHTML('afterend', $nextDayButton);
 
-$('.next-day-button').addEventListener('click', nextDay);
+$('.next-day-button').addEventListener('click', changeDay);
+
+// add keyboard shortcuts for submit (ctrl+enter), next business day (ctrl+⇨), previous business day (ctrl+⇦)
+document.addEventListener('keydown', (e) => {
+    const textField = ['input', 'textarea'].includes(e.target.tagName.toLowerCase());
+
+    if (e.ctrlKey) {
+        if (e.key === 'Enter') {
+            submitForm();
+        }
+        if (!textField) {
+            if (e.key === 'ArrowRight') {
+                changeDay();
+            }
+            if (e.key === 'ArrowLeft') {
+                changeDay(-1);
+            }
+
+        }
+    }
+});
