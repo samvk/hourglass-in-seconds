@@ -1,7 +1,7 @@
 {
   "name": "Hourglass in seconds",
   "manifest_version": 2,
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Hourglass enhanced",
   "author": "Sam Kauffman (SamVK)",
   "icons": {
@@ -11,11 +11,15 @@
   "permissions": [ "storage" ],
   "content_scripts": [{
       "matches": [ "https://sec.kmbs.us/version2/lab/hourglass/*" ],
-      "css": [ "style.css" ],
+      "css": [
+          "style.css",
+          "changelog-alert/style.css"
+      ],
       "js": [
           "utils.js",
           "storage.js",
-          "default-button.js"
+          "default-button.js",
+          "changelog-alert/index.js"
       ]
     }]
 }

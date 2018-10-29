@@ -1,0 +1,11 @@
+.changelog-alert {
+    position: fixed;
+    bottom: 32px;
+    right: 32px;
+
+    transition: transform 1s ease-in-out 1s;
+}
+
+.changelog-alert--hidden {
+    transform: translateY(calc(102% + 32px));
+}
