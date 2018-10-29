@@ -89,7 +89,7 @@ function submitForm() {
 }
 
 // ADD "NEXT BUSINESS DAY" BUTTON
-function changeDay(direction = 1) {
+function changeDay(direction) {
     $('.input-group-addon').click();
     const $today = $('.active.day');
 
@@ -116,6 +116,9 @@ function changeDay(direction = 1) {
     $changeDayNode.click();
 }
 
+function nextDay() { changeDay(1) };
+function prevDay() { changeDay(-1) };
+
 $nextDayButton = `<div class="col-sm-1 col-md-1">
     <span class="next-day-button" title="Next business day">
         <span class="glyphicon glyphicon-chevron-right"></span>
@@ -124,7 +127,7 @@ $nextDayButton = `<div class="col-sm-1 col-md-1">
 
 $('#datepicker1').insertAdjacentHTML('afterend', $nextDayButton);
 
-$('.next-day-button').addEventListener('click', changeDay);
+$('.next-day-button').addEventListener('click', nextDay);
 
 // add keyboard shortcuts for submit (ctrl+enter), next business day (ctrl+⇨), previous business day (ctrl+⇦)
 document.addEventListener('keydown', (e) => {
@@ -136,10 +139,10 @@ document.addEventListener('keydown', (e) => {
         }
         if (!textField) {
             if (e.key === 'ArrowRight') {
-                changeDay();
+                nextDay();
             }
             if (e.key === 'ArrowLeft') {
-                changeDay(-1);
+                prevDay();
             }
 
         }
