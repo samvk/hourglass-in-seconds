@@ -99,7 +99,7 @@ function changeDay(direction) {
             const tomorrowWeekend = !($today.nextElementSibling && $today.nextElementSibling.nextElementSibling);
 
             if (tomorrowWeekend) {
-                return $today.parentElement.nextElementSibling.firstChild.nextElementSibling;
+                return $today.parentElement.nextElementSibling.firstElementChild.nextElementSibling;
             }
             return $today.nextElementSibling;
         })();
