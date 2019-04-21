@@ -18,6 +18,7 @@
       "js": [
           "utils.js",
           "storage.js",
+          "add-new-activity.js",
           "default-button.js",
           "changelog-alert/index.js"
       ]

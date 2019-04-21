@@ -1,3 +1,9 @@
+/* style "add new" button in week view */
+.weekview-addlink {
+    display: block;
+    margin-top: 10px;
+}
+
 /* prevents left/right arrows from moving on change */
 #thisday,
 #thisweek {
