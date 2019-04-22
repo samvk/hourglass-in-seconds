@@ -33,4 +33,8 @@ observer.observe($('#weekview'), {
 });
 
 // DEFAULT TO "WEEK VIEW"
-$('#showWeek').click();
+const dayView = new URLSearchParams(location.search).has('d');
+
+if (!dayView) {
+    $('#showWeek').click();
+}
