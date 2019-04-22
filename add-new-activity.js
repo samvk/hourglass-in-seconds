@@ -1,3 +1,5 @@
+const DAY_PARAM = 'd';
+
 function buildAddNewTaskNode({ day }) {
     return (
         `<div class="col-sm-12 col-md-12 addlink weekview-addlink">
@@ -19,7 +21,8 @@ function addNewTaskNode() {
             return;
         }
 
-        const day = el.querySelector('[href^="activity.html?d="]').href.match(/[?&]d=(\d{4}-\d{2}-\d{2})/)[1];
+        const urlWithDayParam = el.querySelector('[href^="activity.html?d="]').href.split('?').pop();
+        const day = new URLSearchParams(urlWithDayParam).get(DAY_PARAM);
 
         el.insertAdjacentHTML('beforeend', buildAddNewTaskNode({ day }));
         el.setAttribute(ALREADY_OBSERVED_ATTRIBUTE, 'true');
@@ -33,7 +36,7 @@ observer.observe($('#weekview'), {
 });
 
 // DEFAULT TO "WEEK VIEW"
-const dayView = new URLSearchParams(location.search).has('d');
+const dayView = new URLSearchParams(location.search).has(DAY_PARAM);
 
 if (!dayView) {
     $('#showWeek').click();
