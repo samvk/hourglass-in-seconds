@@ -73,3 +73,29 @@
 .saved {
     animation: saved 3s;
 }
+
+/* Summer Hours */
+
+/* half-opacity (without affecting "+Add" button */
+#fake-summer-hours-row {
+    background-color: #EDEDED75;
+}
+
+#fake-summer-hours-row > td:not(#add-summer-hours-cell) {
+    opacity: 0.75;
+}
+
+#dayview {
+    position: relative;
+}
+
+#add-summer-hours {
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translate(-50%, 50%);
+}
+
+.display-none {
+    display: none;
+}
