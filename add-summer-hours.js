@@ -47,7 +47,7 @@ function addSummerHours() {
 function displaySummerHoursRow() {
     const fakeSummerHoursRowNode = $('#fake-summer-hours-row');
     const today = $('[name="date1"]').value;
-    const summerHoursDays = ['06/21/2019', '07/12/2019', '07/19/2019', '07/26/2019', '08/02/2019', '08/09/2019', '08/16/2019', '08/23/2019', '08/30/2019'];
+    const summerHoursDays = ['06/07/2019', '06/14/2019', '06/21/2019', '07/12/2019', '07/19/2019', '07/26/2019', '08/02/2019', '08/09/2019', '08/16/2019', '08/23/2019', '08/30/2019'];
     const alreadyAddedSummerHours = [...$All('.dayactivity:not(.summer-hours-dayactivity)')].some((el) => el.textContent === 'Summer Hours');
 
     if (summerHoursDays.includes(today) && !alreadyAddedSummerHours) {
