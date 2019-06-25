@@ -2,7 +2,7 @@
 
 ## 1.3.0 – _2019-06-20_
 ### Added
-"+ Add" Summer Hours button on participating days
+- "+ Add" Summer Hours button on participating days
 
 ## 1.2.0 – _2019-04-21_
 ### Added
