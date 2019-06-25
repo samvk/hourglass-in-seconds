@@ -1,3 +1,16 @@
+/* handle zebra-striping without classes */
+.white-stripe, .grey-stripe {
+    background-color: inherit;
+}
+
+#dayview tr:not(:first-child):not(.fake-row) {
+    background-color: #FFFFFF;
+}
+
+#dayview tr:not(:first-child):not(.fake-row):nth-child(even) {
+    background-color: #EDEDED;
+}
+
 /* style "add new" button in week view */
 .weekview-addlink {
     display: block;
@@ -98,4 +111,15 @@
 
 .display-none {
     display: none;
+}
+
+/* Delete Activity button */
+.delete-activity-cell {
+    position: absolute;
+}
+
+.delete-activity-button {
+    cursor: pointer;
+    border-radius: 0 4px 4px 0;
+    padding: 0 3px;
 }
