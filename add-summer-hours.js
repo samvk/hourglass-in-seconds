@@ -3,7 +3,7 @@ const OUT_OF_OFFICE_PROJECT = 76;
 const SUMMER_HOURS_ACTIVITY = 53;
 
 const addSummerHoursNode = (
-    `<tr id='fake-summer-hours-row' class='grey-stripe display-none'>
+    `<tr id='fake-summer-hours-row' class='fake-row grey-stripe display-none'>
         <td style='padding:4px;'>
             <a class='daylink'>
                 <p>
