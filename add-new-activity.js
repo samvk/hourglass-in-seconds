@@ -31,8 +31,8 @@ function addNewTaskNode() {
 
 const observer = new MutationObserver(addNewTaskNode);
 observer.observe($('#weekview'), {
-  childList: true,
-  subtree: true,
+    childList: true,
+    subtree: true,
 });
 
 // DEFAULT TO "WEEK VIEW"
