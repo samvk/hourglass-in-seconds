@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.4.0 – _2019-07-01_
+### Added
+- Delete activity button on Task page
+
 ## 1.3.0 – _2019-06-20_
 ### Added
 - "+ Add" Summer Hours button on participating days
