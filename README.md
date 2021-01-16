@@ -1,6 +1,6 @@
 # Chrome Extension | Hourglass in seconds
 
-Adds a default button for all fields, a "Next business day" button, a "+ Add" Summer Hours button, and more.
+Adds a default button for all fields, a "Next business day" button, a "+ Add" Company Holiday button, and more.
 
 ### Keyboard Shortcuts
 
