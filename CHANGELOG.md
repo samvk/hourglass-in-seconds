@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.5.0 – _2021-01-15_
+### Added
+- "+ Add" Company Holiday button on participating days
+
 ## 1.4.0 – _2019-07-01_
 ### Added
 - Delete activity button on Task page
