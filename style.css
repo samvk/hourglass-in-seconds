@@ -87,14 +87,14 @@
     animation: saved 3s;
 }
 
-/* Summer Hours */
+/* Company Holiday row */
 
 /* half-opacity (without affecting "+Add" button */
-#fake-summer-hours-row {
+#fake-hourglass-row {
     background-color: #EDEDED75;
 }
 
-#fake-summer-hours-row > td:not(#add-summer-hours-cell) {
+#fake-hourglass-row > td:not(#add-fake-cell) {
     opacity: 0.75;
 }
 
@@ -102,7 +102,7 @@
     position: relative;
 }
 
-#add-summer-hours {
+#add-fake-row-button {
     position: absolute;
     left: 50%;
     bottom: 0;

@@ -1,23 +1,73 @@
 const ADMINISTRATION_PRODUCT = 10;
 const OUT_OF_OFFICE_PROJECT = 76;
-const SUMMER_HOURS_ACTIVITY = 53;
+const COMPANY_HOLIDAY_ACTIVITY = 51;
+// const SUMMER_HOURS_ACTIVITY = 53;
 
-const addSummerHoursNode = (
-    `<tr id='fake-summer-hours-row' class='fake-row display-none'>
+const companyHolidayDays = {
+    '01/01/2021': {
+        details: "🎊 New Year's Day"
+    },
+    '01/18/2021': {
+        details: "🎙️ Martin Luther King's Birthday"
+    },
+    '02/15/2021': {
+        details: "🇺🇸 President's Day"
+    },
+    '04/02/2021': {
+        details: "🌷 Spring Holiday"
+    },
+    '05/31/2021': {
+        details: "🌺 Memorial Day"
+    },
+    '07/05/2021': {
+        details: "🇺🇸 Independence Day (observed)"
+    },
+    '09/06/2021': {
+        details: "🛠️ Labor Day"
+    },
+    '10/11/2021': {
+        details: "🍂 Fall Holiday"
+    },
+    '11/25/2021': {
+        details: "🦃 Thanksgiving"
+    },
+    '11/26/2021': {
+        details: "🦃 Day after Thanksgiving"
+    },
+    '12/23/2021': {
+        details: "❄️ Winter Holiday"
+    },
+    '12/24/2021': {
+        details: "❄️ Winter Holiday"
+    },
+    '12/31/2021': {
+        details: "🎊 New Year's Day (observed)"
+    },
+};
+
+function addFakeRowNode({
+    product = 'Administration Out of Office',
+    activity = 'Company Holiday',
+    details = '🏖️ Company Holiday',
+    time = '08:00'
+} = {}) {
+    return (
+        `<tr id='fake-hourglass-row' class='fake-row display-none'>
         <td style='padding:4px;'>
             <a class='daylink'>
                 <p>
-                    Administration Out of Office
+                    ${product}
                     <br>
-                    <span class='dayactivity summer-hours-dayactivity'>Summer Hours</span>
+                    <span class='dayactivity fake-dayactivity'>${activity}</span>
                 </p>
             </a>
         </td>
-        <td><p class='daydetails'>🌞 Summer Hours</p></td>
-        <td class='daytime'><p>03:00</p></td>
-        <td id='add-summer-hours-cell'><div><input id='add-summer-hours' class='btn btn-warning' type='button' value='+ Add'></div></td>
+        <td><p class='daydetails'>${details}</p></td>
+        <td class='daytime'><p>${time}</p></td>
+        <td id='add-fake-cell'><div><input id='add-fake-row-button' class='btn btn-warning' type='button' value='+ Add'></div></td>
     </tr>`
-);
+    )
+}
 
 function submitActivity(entries) {
     Object.entries(entries).forEach(([name, value]) => {
@@ -31,29 +81,15 @@ function submitActivity(entries) {
     submitForm();
 }
 
-function addSummerHours() {
-    submitActivity({
-        product: ADMINISTRATION_PRODUCT,
-        project: OUT_OF_OFFICE_PROJECT,
-        activity: SUMMER_HOURS_ACTIVITY,
-        time: 3,
-        'time-units': 'h',
-        details: 'Summer Hours',
-        capital: 0,
-        international: 0,
-    });
-}
-
-function displaySummerHoursRow() {
-    const fakeSummerHoursRowNode = $('#fake-summer-hours-row');
+function displayFakeRow() {
+    const fakeRowNode = $('#fake-hourglass-row');
     const today = $('[name="date1"]').value;
-    const summerHoursDays = ['06/07/2019', '06/14/2019', '06/21/2019', '07/12/2019', '07/19/2019', '07/26/2019', '08/02/2019', '08/09/2019', '08/16/2019', '08/23/2019'];
-    const alreadyAddedSummerHours = [...$All('.dayactivity:not(.summer-hours-dayactivity)')].some((el) => el.textContent === 'Summer Hours');
+    const alreadyAddedCompanyHoliday = [...$All('.dayactivity:not(.fake-dayactivity)')].some((el) => el.textContent === 'Company Holiday');
 
-    if (summerHoursDays.includes(today) && !alreadyAddedSummerHours) {
-        fakeSummerHoursRowNode.classList.remove('display-none');
+    if (Object.keys(companyHolidayDays).includes(today) && !alreadyAddedCompanyHoliday) {
+        fakeRowNode.classList.remove('display-none');
     } else {
-        fakeSummerHoursRowNode.classList.add('display-none');
+        fakeRowNode.classList.add('display-none');
     }
 }
 
@@ -63,12 +99,25 @@ const observer = new MutationObserver(() => {
         return;
     }
 
-    if ($('#fake-summer-hours-row') === null) {
-        activityTableBody.insertAdjacentHTML('beforeend', addSummerHoursNode);
-        $('#add-summer-hours').addEventListener('click', addSummerHours);
+    if ($('#fake-hourglass-row') === null) {
+        const today = $('[name="date1"]').value;
+        const fakeRowDetails = companyHolidayDays[today].details;
+        activityTableBody.insertAdjacentHTML('beforeend', addFakeRowNode({ details: fakeRowDetails }));
+        $('#add-fake-row-button').addEventListener('click', function() {
+            submitActivity({
+                product: ADMINISTRATION_PRODUCT,
+                project: OUT_OF_OFFICE_PROJECT,
+                activity: COMPANY_HOLIDAY_ACTIVITY,
+                time: 8,
+                'time-units': 'h',
+                details: fakeRowDetails,
+                capital: 0,
+                international: 0,
+            });
+        });
     }
 
-    displaySummerHoursRow();
+    displayFakeRow();
 });
 
 observer.observe($('#dayview'), {
