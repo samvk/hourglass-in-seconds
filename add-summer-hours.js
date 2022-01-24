@@ -4,45 +4,48 @@ const COMPANY_HOLIDAY_ACTIVITY = 51;
 // const SUMMER_HOURS_ACTIVITY = 53;
 
 const companyHolidayDays = {
-    '01/01/2021': {
-        details: "🎊 New Year's Day"
+    // '01/01/2022': {
+    //     details: "🎊 New Year's Day"
+    // },
+    '01/17/2022': {
+        details: "🎙️ Martin Luther King Day"
     },
-    '01/18/2021': {
-        details: "🎙️ Martin Luther King's Birthday"
-    },
-    '02/15/2021': {
+    '02/21/2022': {
         details: "🇺🇸 President's Day"
     },
-    '04/02/2021': {
+    '04/15/2022': {
         details: "🌷 Spring Holiday"
     },
-    '05/31/2021': {
+    '05/30/2022': {
         details: "🌺 Memorial Day"
     },
-    '07/05/2021': {
-        details: "🇺🇸 Independence Day (observed)"
+    '06/20/2022': {
+        details: "🌟 Juneteenth"
     },
-    '09/06/2021': {
+    '07/04/2022': {
+        details: "🇺🇸 Independence Day"
+    },
+    '09/05/2022': {
         details: "🛠️ Labor Day"
     },
-    '10/11/2021': {
-        details: "🍂 Fall Holiday"
-    },
-    '11/25/2021': {
+    // '10/11/2022': {
+    //     details: "🍂 Fall Holiday"
+    // },
+    '11/24/2022': {
         details: "🦃 Thanksgiving"
     },
-    '11/26/2021': {
+    '11/25/2022': {
         details: "🦃 Day after Thanksgiving"
     },
-    '12/23/2021': {
+    '12/23/2022': {
         details: "❄️ Winter Holiday"
     },
-    '12/24/2021': {
+    '12/26/2022': {
         details: "❄️ Winter Holiday"
     },
-    '12/31/2021': {
-        details: "🎊 New Year's Day (observed)"
-    },
+    // '12/31/2022': {
+    //     details: "🎊 New Year's Day"
+    // },
 };
 
 function addFakeRowNode({
