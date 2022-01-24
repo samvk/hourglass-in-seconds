@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.5.1 – _2022-01-24_
+### Changed
+- Update corporate holidays for 2022
+
 ## 1.5.0 – _2021-01-15_
 ### Added
 - "+ Add" Company Holiday button on participating days
