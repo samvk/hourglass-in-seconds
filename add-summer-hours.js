@@ -104,7 +104,11 @@ const observer = new MutationObserver(() => {
 
     if ($('#fake-hourglass-row') === null) {
         const today = $('[name="date1"]').value;
-        const fakeRowDetails = companyHolidayDays[today].details;
+        const companyHolidayDay = companyHolidayDays[today];
+        if (!companyHolidayDay) {
+            return;
+        }
+        const fakeRowDetails = companyHolidayDay.details;
         activityTableBody.insertAdjacentHTML('beforeend', addFakeRowNode({ details: fakeRowDetails }));
         $('#add-fake-row-button').addEventListener('click', function() {
             submitActivity({
