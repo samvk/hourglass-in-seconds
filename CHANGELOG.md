@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.5.2 – _2022-06-02_
+### Changed
+- Update summer hours for 2022
+
 ## 1.5.1 – _2022-01-24_
 ### Changed
 - Update corporate holidays for 2022
