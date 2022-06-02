@@ -1,6 +1,6 @@
 {
   "name": "Hourglass in seconds",
-  "manifest_version": 2,
+  "manifest_version": 3,
   "version": "1.5.2",
   "description": "Hourglass enhanced",
   "author": "Sam Kauffman (SamVK)",
