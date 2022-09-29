@@ -10,7 +10,7 @@
   },
   "permissions": [ "storage" ],
   "content_scripts": [{
-      "matches": [ "https://sec.kmbs.us/version2/lab/hourglass/*" ],
+      "matches": ["https://sec.kmbs.us/version2/lab/hourglass/*"],
       "css": [
           "style.css",
           "changelog-alert/style.css"
