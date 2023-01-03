@@ -26,6 +26,12 @@ const summerHoursDays = [
 
 const companyHolidayDays = {
     ...summerHoursDays,
+    '12/23/2022': {
+        details: "❄️ Winter Holiday"
+    },
+    '12/26/2022': {
+        details: "❄️ Winter Holiday"
+    },
     '01/02/2023': {
         details: "🎊 New Year's Day"
     },
