@@ -26,46 +26,46 @@ const summerHoursDays = [
 
 const companyHolidayDays = {
     ...summerHoursDays,
-    // '01/01/2022': {
-    //     details: "🎊 New Year's Day"
-    // },
-    '01/17/2022': {
+    '01/02/2023': {
+        details: "🎊 New Year's Day"
+    },
+    '01/16/2023': {
         details: "🎙️ Martin Luther King Day"
     },
-    '02/21/2022': {
+    '02/20/2023': {
         details: "🇺🇸 President's Day"
     },
-    '04/15/2022': {
+    '04/07/2023': {
         details: "🌷 Spring Holiday"
     },
-    '05/30/2022': {
+    '05/29/2023': {
         details: "🌺 Memorial Day"
     },
-    '06/20/2022': {
+    '06/19/2023': {
         details: "🌟 Juneteenth"
     },
-    '07/04/2022': {
+    '07/04/2023': {
         details: "🇺🇸 Independence Day"
     },
-    '09/05/2022': {
+    '09/04/2023': {
         details: "🛠️ Labor Day"
     },
-    // '10/11/2022': {
+    // '10/11/2023': {
     //     details: "🍂 Fall Holiday"
     // },
-    '11/24/2022': {
+    '11/23/2023': {
         details: "🦃 Thanksgiving"
     },
-    '11/25/2022': {
+    '11/24/2023': {
         details: "🦃 Day after Thanksgiving"
     },
-    '12/23/2022': {
+    '12/25/2023': {
         details: "❄️ Winter Holiday"
     },
-    '12/26/2022': {
+    '12/26/2023': {
         details: "❄️ Winter Holiday"
     },
-    // '12/31/2022': {
+    // '12/31/2023': {
     //     details: "🎊 New Year's Day"
     // },
 };

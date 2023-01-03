@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.5.4 – _2023-01-03_
+### Changed
+- Update corporate holidays for 2023
+
+## 1.5.3 – _2022-09-29_
+### Changed
+- Minor bug fixes
+
 ## 1.5.2 – _2022-06-02_
 ### Changed
 - Update summer hours for 2022
