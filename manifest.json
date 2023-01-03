@@ -8,6 +8,11 @@
       "16": "img/icon/icon-16.png",
       "48": "img/icon/icon-48.png"
   },
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "{6bbb52fc-716d-46f7-99d7-57a1d71357f3}"
+    }
+  },
   "permissions": [ "storage" ],
   "content_scripts": [{
       "matches": ["https://sec.kmbs.us/version2/lab/hourglass/*"],
