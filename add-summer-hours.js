@@ -50,6 +50,9 @@ const companyHolidayDays = {
     '06/19/2023': {
         details: "🌟 Juneteenth"
     },
+    '07/03/2023': {
+        details: "🇺🇸 Day Before Independence Day"
+    },
     '07/04/2023': {
         details: "🇺🇸 Independence Day"
     },
