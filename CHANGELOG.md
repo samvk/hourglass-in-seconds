@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.5.6 – _2023-12-28_
+### Changed
+- Update corporate holidays for 2024
+
 ## 1.5.5 – _2023-06-16_
 ### Changed
 - Add new corporate holiday ("Day Before Independence Day")

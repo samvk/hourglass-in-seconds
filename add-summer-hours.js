@@ -26,55 +26,55 @@ const summerHoursDays = [
 
 const companyHolidayDays = {
     ...summerHoursDays,
-    '12/23/2022': {
-        details: "❄️ Winter Holiday"
-    },
-    '12/26/2022': {
-        details: "❄️ Winter Holiday"
-    },
-    '01/02/2023': {
-        details: "🎊 New Year's Day"
-    },
-    '01/16/2023': {
-        details: "🎙️ Martin Luther King Day"
-    },
-    '02/20/2023': {
-        details: "🇺🇸 President's Day"
-    },
-    '04/07/2023': {
-        details: "🌷 Spring Holiday"
-    },
-    '05/29/2023': {
-        details: "🌺 Memorial Day"
-    },
-    '06/19/2023': {
-        details: "🌟 Juneteenth"
-    },
-    '07/03/2023': {
-        details: "🇺🇸 Day Before Independence Day"
-    },
-    '07/04/2023': {
-        details: "🇺🇸 Independence Day"
-    },
-    '09/04/2023': {
-        details: "🛠️ Labor Day"
-    },
-    // '10/11/2023': {
-    //     details: "🍂 Fall Holiday"
-    // },
-    '11/23/2023': {
-        details: "🦃 Thanksgiving"
-    },
-    '11/24/2023': {
-        details: "🦃 Day after Thanksgiving"
-    },
     '12/25/2023': {
         details: "❄️ Winter Holiday"
     },
     '12/26/2023': {
         details: "❄️ Winter Holiday"
     },
-    // '12/31/2023': {
+    '01/01/2024': {
+        details: "🎊 New Year's Day"
+    },
+    '01/15/2024': {
+        details: "🎙️ Martin Luther King Day"
+    },
+    '02/19/2024': {
+        details: "🇺🇸 President's Day"
+    },
+    // '04/07/2024': {
+    //     details: "🌷 Spring Holiday"
+    // },
+    '05/27/2024': {
+        details: "🌺 Memorial Day"
+    },
+    '06/19/2024': {
+        details: "🌟 Juneteenth"
+    },
+    // '07/03/2024': {
+    //     details: "🇺🇸 Day Before Independence Day"
+    // },
+    '07/04/2024': {
+        details: "🇺🇸 Independence Day"
+    },
+    '09/02/2024': {
+        details: "🛠️ Labor Day"
+    },
+    // '10/11/2024': {
+    //     details: "🍂 Fall Holiday"
+    // },
+    '11/28/2024': {
+        details: "🦃 Thanksgiving Holiday"
+    },
+    '11/29/2024': {
+        details: "🦃 Thanksgiving Holiday"
+    },
+    '12/25/2024': {
+        details: "❄️ Winter Holiday"
+    },
+    '12/26/2024': {
+        details: "❄️ Winter Holiday"
+    },
+    // '12/31/2024': {
     //     details: "🎊 New Year's Day"
     // },
 };
