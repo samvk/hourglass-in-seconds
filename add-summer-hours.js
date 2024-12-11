@@ -87,13 +87,13 @@ const companyHolidayDays = {
 
 function addFakeRowNode({
     product = 'Administration Out of Office',
-    activity = 51,
+    activity = COMPANY_HOLIDAY_ACTIVITY,
     details = '🏖️ Company Holiday',
     time = 8
 } = {}) {
     const activityString = {
-        51: 'Company Holiday',
-        53: 'Summer Hours',
+        [COMPANY_HOLIDAY_ACTIVITY]: 'Company Holiday',
+        [SUMMER_HOURS_ACTIVITY]: 'Summer Hours',
     }[activity] ?? 'Company Holiday';
 
     const timeString = (() => {
