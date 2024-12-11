@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.5.7 – _2024-12-11_
+### Changed
+- Update corporate holidays for 2025
+
 ## 1.5.6 – _2023-12-28_
 ### Changed
 - Update corporate holidays for 2024
