@@ -33,6 +33,7 @@
       "js": [
         "default-button.js",
         "add-summer-hours.js",
+        "add-templates.js",
         "delete-activity.js"
       ]
     }]

@@ -3,11 +3,13 @@
     background-color: inherit;
 }
 
-#dayview tr:not(:first-child):not(.fake-row) {
+#dayview tr:not(:first-child):not(.fake-row),
+#dayview-templates tr:not(:first-child):not(.fake-row) {
     background-color: #FFFFFF;
 }
 
-#dayview tr:not(:first-child):not(.fake-row):nth-child(even) {
+#dayview tr:not(:first-child):not(.fake-row):nth-child(even),
+#dayview-templates tr:not(:first-child):not(.fake-row):nth-child(even) {
     background-color: #EDEDED;
 }
 
@@ -90,18 +92,22 @@
 /* Company Holiday row */
 
 /* half-opacity (without affecting "+Add" button */
-#fake-hourglass-row {
+#fake-hourglass-row,
+#fake-template-row {
     background-color: #EDEDED75;
 }
 
-#fake-hourglass-row > td:not(#add-fake-cell) {
+#fake-hourglass-row > td:not(#add-fake-cell),
+#fake-template-row > td:not(#add-fake-cell) {
     opacity: 0.75;
 }
 
-#dayview {
+#dayview,
+#dayview-templates {
     position: relative;
 }
 
+#add-fake-template-row-button,
 #add-fake-row-button {
     position: absolute;
     left: 50%;

@@ -54,14 +54,18 @@ function buildDeleteActivityButtons() {
     });
 }
 
-const deleteButtonObserver = new MutationObserver((_, self) => {
+const deleteButtonObserverCallback = () => {
     const activityTableBody = $('#dayview > tbody');
     if (!activityTableBody) {
         return;
     }
 
     buildDeleteActivityButtons();
-});
+};
+
+deleteButtonObserverCallback();
+
+const deleteButtonObserver = new MutationObserver(deleteButtonObserverCallback);
 
 deleteButtonObserver.observe($('#dayview'), {
     childList: true,

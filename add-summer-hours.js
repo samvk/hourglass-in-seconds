@@ -1,8 +1,3 @@
-const ADMINISTRATION_PRODUCT = 10;
-const OUT_OF_OFFICE_PROJECT = 76;
-const COMPANY_HOLIDAY_ACTIVITY = 51;
-const SUMMER_HOURS_ACTIVITY = 53;
-
 const summerHoursDays = [
     '06/10/2022',
     '06/17/2022',
@@ -118,18 +113,6 @@ function addFakeRowNode({
         <td id='add-fake-cell'><div><input id='add-fake-row-button' class='btn btn-warning' type='button' value='+ Add'></div></td>
     </tr>`
     )
-}
-
-function submitActivity(entries) {
-    Object.entries(entries).forEach(([name, value]) => {
-        const inputNode = $(`[name="${name}"]`);
-        if (inputNode.tagName === 'SELECT') {
-            inputNode.insertAdjacentHTML('beforeend', `<option value="${value}"></option>`); // force select option (even if list not rendered)
-        }
-        inputNode.value = value;
-    });
-
-    submitForm();
 }
 
 function displayFakeRow() {
