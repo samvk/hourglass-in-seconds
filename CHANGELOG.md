@@ -4,6 +4,14 @@
 ### Added
 - Add support for templates
   - Tip: If you want a template you can edit daily (e.g. same activity but different hours spent) - simply save and "+Add" it, then edit the new actual entry (by clicking the name of the activity in the table)
+  
+- New keyboard shortcuts:
+
+| Command | Shortcut |
+| ------- | -------- |
+| Add first saved template | <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>1</kbd> |
+| Add second saved template | <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>2</kbd> |
+| etc. | |
 
 ### Fixed
 - Don't apply defaults if we're editing an existing activity
