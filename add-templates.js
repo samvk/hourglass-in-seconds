@@ -33,7 +33,7 @@ function addFakeTemplateRowNode({
             </td>
             <td class='daytime'><p>${timeString}</p></td>
             <td class="delete-activity-cell"><div class="delete-activity-button btn-danger" title="Delete">✖</div></td>
-            <td><div><input id='add-fake-template-row-button' class='btn btn-warning add-fake-row-button' type='button' value='+ Add'></div></td>
+            <td><div><input class='btn btn-warning add-fake-template-row-button' type='button' value='+ Add'></div></td>
         </tr>`
     )
 }
@@ -58,7 +58,7 @@ const rerenderTemplateTable = () => {
 
         templates.forEach((template) => {
             templateTableBody.insertAdjacentHTML('beforeend', addFakeTemplateRowNode(template));
-            $(`[data-id="${template.id}"] .add-fake-row-button`).addEventListener('click', function() {
+            $(`[data-id="${template.id}"] .add-fake-template-row-button`).addEventListener('click', function() {
                 submitActivity({
                         product: template.product,
                         project: template.project,
@@ -181,4 +181,17 @@ const saveAsTemplateObserver = new MutationObserver(saveAsTemplateObserverCallba
 saveAsTemplateObserver.observe($('#cancel-button'), {
   childList: true,
   subtree: true,
+});
+
+// add keyboard shortcuts for submit (ctrl+enter), next business day (ctrl+⇨), previous business day (ctrl+⇦)
+document.addEventListener('keydown', (e) => {
+    const textField = ['input', 'textarea'].includes(e.target.tagName.toLowerCase());
+
+    if (e.ctrlKey && (e.altKey || e.shiftKey)) {
+        if (!textField) {
+            if (e.key === '1') {
+                console.log('click!')
+            }
+        }
+    }
 });

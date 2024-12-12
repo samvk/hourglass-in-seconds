@@ -131,7 +131,7 @@
     transform: translate(-50%, 50%);
 }
 
-#add-fake-template-row-button {
+input.add-fake-template-row-button {
     position: absolute;
     border-radius: 0 4px 4px 0;
     padding: 0 3px;
