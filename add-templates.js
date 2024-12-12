@@ -183,14 +183,29 @@ saveAsTemplateObserver.observe($('#cancel-button'), {
   subtree: true,
 });
 
-// add keyboard shortcuts for submit (ctrl+enter), next business day (ctrl+⇨), previous business day (ctrl+⇦)
+// add keyboard shortcuts quick template submission
 document.addEventListener('keydown', (e) => {
     const textField = ['input', 'textarea'].includes(e.target.tagName.toLowerCase());
 
-    if (e.ctrlKey && (e.altKey || e.shiftKey)) {
+    if (e.ctrlKey && e.altKey) {
         if (!textField) {
-            if (e.key === '1') {
-                console.log('click!')
+            if (/^[1-9]$/.test(e.key)) {
+                 templatesStorage.get((templates) => {
+                    const template = templates[parseInt(e.key, 10) - 1];
+                    if (template) {
+                        submitActivity({
+                                product: template.product,
+                                project: template.project,
+                                activity: template.activity,
+                                time: template.time,
+                                'time-units': template['time-units'],
+                                details: template.details,
+                                capital: template.capital,
+                                international: template.international,
+
+                        });
+                    }
+                });
             }
         }
     }
