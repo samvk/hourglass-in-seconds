@@ -6,6 +6,8 @@ function addFakeTemplateRowNode({
     details = '',
     time = 8,
     'time-units': timeUnits = 'h',
+    capital = 0,
+    international = 0,
 } = {}) {
     const timeString = (() => {
     const d = new Date(0, 0);
@@ -24,7 +26,11 @@ function addFakeTemplateRowNode({
                     </p>
                 </a>
             </td>
-            <td><p class='daydetails'>${details}</p></td>
+            <td>
+                <p class='daydetails'>${details}</p>
+                ${capital ? '<img src="img/dollar.png" title="Capitalizable activity">': ''}
+                ${international ? '<img src="img/international.png" title="International activity">': ''}
+            </td>
             <td class='daytime'><p>${timeString}</p></td>
             <td class="delete-activity-cell"><div class="delete-activity-button btn-danger" title="Delete">✖</div></td>
             <td><div><input id='add-fake-template-row-button' class='btn btn-warning add-fake-row-button' type='button' value='+ Add'></div></td>
