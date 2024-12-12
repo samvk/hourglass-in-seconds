@@ -7,6 +7,7 @@
 
 ### Fixed
 - Don't apply defaults if we're editing an existing activity
+  - Tip: If you want to "clear" one of your defaults (e.g. "details") just delete the text and save the empty field as your new default
 
 ## 1.5.7 – _2024-12-11_
 ### Changed
