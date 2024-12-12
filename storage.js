@@ -2,7 +2,7 @@ const storage = chrome.storage.sync;
 
 const defaultsStorage = {
     get(callback = () => {}) {
-        storage.get(['hours', 'details', 'capitalize', 'international', 'tags'], (defaults) => {
+        storage.get(['product', 'project', 'activity', 'hours', 'details', 'capitalize', 'international', 'tags'], (defaults) => {
             callback(defaults);
         });
     },

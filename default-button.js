@@ -22,6 +22,15 @@ defaultsStorage.get((defaults) => {
         return;
     }
 
+    if (defaults.product) {
+        $('#product').value = defaults.product;
+    }
+    if (defaults.project) {
+        $('#project').value = defaults.project;
+    }
+    if (defaults.activity) {
+        $('#activity').value = defaults.activity;
+    }
     if (defaults.capitalize) {
         $('#yes-select-button').click();
     }
@@ -39,7 +48,7 @@ defaultsStorage.get((defaults) => {
     // }
 });
 
-function buildDefaultNode({ storage, node, type }) {
+function buildDefaultNode({ storage, node, type, replacement }) {
     return (
         `<div class="col-sm-1 col-md-1">
             <img
@@ -50,6 +59,7 @@ function buildDefaultNode({ storage, node, type }) {
                 data-storage='${storage}'
                 data-node='${node}'
                 data-type='${type}'
+                data-replacement='${replacement}'
             >
         </div>`
     );
@@ -64,6 +74,9 @@ function saveDefaultValue({ node, type }) {
 }
 
 const defaultButtonConfigs = [
+    { placement: '#product', storage: 'product', node: '#product', type: 'value', replacement: '#set-default-product' },
+    { placement: '#project', storage: 'project', node: '#project', type: 'value', replacement: '#set-default-project' },
+    { placement: '#activity', storage: 'activity', node: '#activity', type: 'value', replacement: '#set-default-activity' },
     { placement: '#time-units', storage: 'hours', node: '#time', type: 'value' },
     { placement: '#details', storage: 'details', node: '#details', type: 'value' },
     { placement: '#yes-select-button', storage: 'capitalize', node: '#yes-select-button', type: 'select-button' },
@@ -71,8 +84,8 @@ const defaultButtonConfigs = [
     // { placement: '#tags', storage: 'tags', node: '#tags', type: 'tags' },
 ];
 
-Object.values(defaultButtonConfigs).forEach(({ placement, storage, node, type }) => {
-    $(placement).parentElement.insertAdjacentHTML('afterend', buildDefaultNode({ storage, node, type }));
+Object.values(defaultButtonConfigs).forEach(({ placement, storage, node, type, replacement }) => {
+    $(placement).parentElement.insertAdjacentHTML('afterend', buildDefaultNode({ storage, node, type, replacement }));
 });
 
 $All('.default-button').forEach((el) => {
@@ -83,6 +96,13 @@ $All('.default-button').forEach((el) => {
         defaultsStorage.set({
             [key]: value,
         });
+
+        const replacementNodeSelector = el.getAttribute('data-replacement');
+        if (replacementNodeSelector) {
+            console.log($(replacementNodeSelector))
+            console.log($(replacementNodeSelector)?.click)
+            $(replacementNodeSelector)?.click();
+        }
 
         el.classList.remove('saved');
         setTimeout(() => el.classList.add('saved'), 0);

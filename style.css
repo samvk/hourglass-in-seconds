@@ -37,6 +37,13 @@
 .temp-status {
     color: #FF8C84;
 }
+
+#set-default-product,
+#set-default-project,
+#set-default-activity {
+    display: none;
+}
+
 [src="img/set-default.png"] {
     filter: hue-rotate(180deg) saturate(2); /* edit image to pink */
 
