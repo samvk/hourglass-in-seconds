@@ -59,8 +59,10 @@ const rerenderTemplateTable = () => {
                 });
             });
             $(`[data-id="${template.id}"] .delete-activity-button`).addEventListener('click', function() {
-                templatesStorage.remove(template.id);
-                // rerenderTemplateTable();
+                if (confirm('Are you sure you want to delete this template?')) {
+                    templatesStorage.remove(template.id);
+                    // rerenderTemplateTable();
+                }
             });
         });
     });
