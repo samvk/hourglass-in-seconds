@@ -12,7 +12,7 @@ function addTags(tags) {
 }
 
 defaultsStorage.get((defaults) => {
-    if (parseInt($('#time').value) === 0) {
+    if (parseInt($('#time').value, 10) === 0) {
         $('#time').value = ''; // set value to '' not '0'
     }
 
