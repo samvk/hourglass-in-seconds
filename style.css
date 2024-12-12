@@ -107,12 +107,22 @@
     position: relative;
 }
 
-#add-fake-template-row-button,
 #add-fake-row-button {
     position: absolute;
     left: 50%;
     bottom: 0;
     transform: translate(-50%, 50%);
+}
+
+#add-fake-template-row-button {
+    position: absolute;
+    border-radius: 0 4px 4px 0;
+    padding: 0 3px;
+}
+
+#save-template-button {
+    font-style: italic;
+    margin-right: 16px;
 }
 
 .display-none {
