@@ -15,12 +15,19 @@ defaultsStorage.get((defaults) => {
     if (parseInt($('#time').value) === 0) {
         $('#time').value = ''; // set value to '' not '0'
     }
-    $('#time-units > [value="h"]').selected = true; // always choose hours
 
-    // don't set defaults if we're editing an existing activity
     if (new URLSearchParams(location.search).has('id')) {
+        const currentTimeValue = parseInt($('#time').value, 10);
+        if (typeof currentTimeValue === 'number' && !Number.isNaN(currentTimeValue) && $('#time-units').value === 'm') {
+            $('#time').value = `${+((currentTimeValue / 60).toFixed(2))}`;
+            $('#time-units').value = 'h';
+        }
+
+        // don't set defaults if we're editing an existing activity
         return;
     }
+
+    $('#time-units').value = 'h'; // always choose hours
 
     if (defaults.product) {
         $('#product').value = defaults.product;
