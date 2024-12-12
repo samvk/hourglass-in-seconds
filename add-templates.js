@@ -50,6 +50,12 @@ const rerenderTemplateTable = () => {
     }
 
     templatesStorage.get((templates) => {
+        if (templates.length === 0) {
+            $('#fake-template-table-container').classList.add('display-none');
+        } else {
+            $('#fake-template-table-container').classList.remove('display-none');
+        }
+
         templates.forEach((template) => {
             templateTableBody.insertAdjacentHTML('beforeend', addFakeTemplateRowNode(template));
             $(`[data-id="${template.id}"] .add-fake-row-button`).addEventListener('click', function() {
@@ -78,13 +84,6 @@ const rerenderTemplateTable = () => {
 chrome.storage.onChanged.addListener((changes) => {
     if (changes.templates) {
         rerenderTemplateTable();
-        if (changes.templates.newValue.length === 0) {
-            $('#fake-template-table-container').classList.add('display-none');
-        } else {
-            $('#fake-template-table-container').classList.remove('display-none');
-        }
-    } else {
-
     }
 });
 
@@ -101,7 +100,7 @@ const templateObserverCallback = () => {
     const activityContainer = activityTableBody.closest('.col-xs-12.col-md-5');
 
     activityContainer.insertAdjacentHTML('afterend',
-        `<div id="fake-template-table-container" class="col-xs-12 col-md-5">
+        `<div id="fake-template-table-container" class="col-xs-12 col-md-5 display-none">
             <div class="col-sm-12 col-md-12">
                 <table style="width: 100%; margin-bottom: 20px; font-size: 1.2em; padding: 2px;" id="dayview-templates">
                     <tbody>
