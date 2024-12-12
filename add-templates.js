@@ -53,8 +53,17 @@ const rerenderTemplateTable = () => {
         templates.forEach((template) => {
             templateTableBody.insertAdjacentHTML('beforeend', addFakeTemplateRowNode(template));
             $(`[data-id="${template.id}"] .add-fake-row-button`).addEventListener('click', function() {
-                const { id: _id, ...templateWithoutId } = template;
-                submitActivity(templateWithoutId);
+                submitActivity({
+                        product: template.product,
+                        project: template.project,
+                        activity: template.activity,
+                        time: template.time,
+                        'time-units': template['time-units'],
+                        details: template.details,
+                        capital: template.capital,
+                        international: template.international,
+
+                });
             });
             $(`[data-id="${template.id}"] .delete-activity-button`).addEventListener('click', function() {
                 templatesStorage.remove(template.id);
