@@ -105,13 +105,17 @@
 /* Company Holiday row */
 
 /* half-opacity (without affecting "+Add" button */
-#fake-hourglass-row,
-#fake-template-row {
+#fake-hourglass-row {
     background-color: #EDEDED75;
 }
 
-#fake-hourglass-row > td:not(#add-fake-cell),
-#fake-template-row > td:not(#add-fake-cell) {
+#fake-template-row {
+    background-color: #FFFFFF;
+    opacity: 0.75;
+    border-bottom: 1px solid #EDEDEDAB;
+}
+
+#fake-hourglass-row > td:not(#add-fake-cell) {
     opacity: 0.75;
 }
 
