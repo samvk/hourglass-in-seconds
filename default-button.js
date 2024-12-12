@@ -48,7 +48,7 @@ defaultsStorage.get((defaults) => {
     // }
 });
 
-function buildDefaultNode({ storage, node, type, replacement }) {
+function buildDefaultNode({ storage, node, type, replacement, dependant }) {
     return (
         `<div class="col-sm-1 col-md-1">
             <img
@@ -60,6 +60,7 @@ function buildDefaultNode({ storage, node, type, replacement }) {
                 data-node='${node}'
                 data-type='${type}'
                 data-replacement='${replacement}'
+                data-dependant='${dependant}'
             >
         </div>`
     );
@@ -74,8 +75,8 @@ function saveDefaultValue({ node, type }) {
 }
 
 const defaultButtonConfigs = [
-    { placement: '#product', storage: 'product', node: '#product', type: 'value', replacement: '#set-default-product' },
-    { placement: '#project', storage: 'project', node: '#project', type: 'value', replacement: '#set-default-project' },
+    { placement: '#product', storage: 'product', node: '#product', type: 'value', replacement: '#set-default-product', dependant: 'project' },
+    { placement: '#project', storage: 'project', node: '#project', type: 'value', replacement: '#set-default-project', dependant: 'product' },
     { placement: '#activity', storage: 'activity', node: '#activity', type: 'value', replacement: '#set-default-activity' },
     { placement: '#time-units', storage: 'hours', node: '#time', type: 'value' },
     { placement: '#details', storage: 'details', node: '#details', type: 'value' },
@@ -84,8 +85,8 @@ const defaultButtonConfigs = [
     // { placement: '#tags', storage: 'tags', node: '#tags', type: 'tags' },
 ];
 
-Object.values(defaultButtonConfigs).forEach(({ placement, storage, node, type, replacement }) => {
-    $(placement).parentElement.insertAdjacentHTML('afterend', buildDefaultNode({ storage, node, type, replacement }));
+Object.values(defaultButtonConfigs).forEach(({ placement, storage, node, type, replacement, dependant }) => {
+    $(placement).parentElement.insertAdjacentHTML('afterend', buildDefaultNode({ storage, node, type, replacement, dependant }));
 });
 
 $All('.default-button').forEach((el) => {
@@ -107,12 +108,9 @@ $All('.default-button').forEach((el) => {
         el.classList.remove('saved');
         setTimeout(() => el.classList.add('saved'), 0);
 
-        // these two are inter-twined
-        if (key === 'product') {
-            $('[data-storage="project"]').click();
-        }
-        if (key === 'project') {
-            $('[data-storage="product"]').click();
+        const dependant = el.getAttribute('data-dependant');
+        if (dependant) {
+            $(`[data-storage="${dependant}"]`)?.click();
         }
     });
 });
