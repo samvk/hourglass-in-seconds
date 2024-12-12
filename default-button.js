@@ -12,19 +12,24 @@ function addTags(tags) {
 }
 
 defaultsStorage.get((defaults) => {
+    if (parseInt($('#time').value) === 0) {
+        $('#time').value = ''; // set value to '' not '0'
+    }
+    $('#time-units > [value="h"]').selected = true; // always choose hours
+
+    // don't set defaults if we're editing an existing activity
+    if (new URLSearchParams(location.search).has('id')) {
+        return;
+    }
+
     if (defaults.capitalize) {
         $('#yes-select-button').click();
     }
     if (defaults.international) {
         $('#yes-int-select-button').click();
     }
-    $('#time-units > [value="h"]').selected = true; // always choose hours
     if (defaults.hours) {
         $('#time').value = defaults.hours;
-    } else {
-        if (parseInt($('#time').value) === 0) {
-            $('#time').value = ''; // set value to '' not '0'
-        }
     }
     if (defaults.details) {
         $('#details').value = defaults.details;
