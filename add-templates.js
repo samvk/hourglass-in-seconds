@@ -4,13 +4,14 @@ function addFakeTemplateRowNode({
     projectFriendlyName = 'Unknown project',
     activityFriendlyName = 'Unknown activity',
     details = '',
-    time = 8
+    time = 8,
+    'time-units': timeUnits = 'h',
 } = {}) {
     const timeString = (() => {
-        const d = new Date(0, 0);
-        d.setMinutes(time * 60);
-        return d.toTimeString().slice(0, 5);
-    })();
+    const d = new Date(0, 0);
+    d.setMinutes(timeUnits === 'm' ? time : time * 60);
+    return d.toTimeString().slice(0, 5);
+})();
 
     return (
         `<tr id='fake-template-row' class='fake-row' data-id='${id}'>
