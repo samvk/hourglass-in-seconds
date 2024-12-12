@@ -19,7 +19,7 @@ defaultsStorage.get((defaults) => {
     if (new URLSearchParams(location.search).has('id')) {
         const currentTimeValue = parseInt($('#time').value, 10);
         if (typeof currentTimeValue === 'number' && !Number.isNaN(currentTimeValue) && $('#time-units').value === 'm') {
-            $('#time').value = `${+((currentTimeValue / 60).toFixed(2))}`;
+            $('#time').value = `${+((currentTimeValue / 60).toFixed(12))}`;
             $('#time-units').value = 'h';
         }
 
