@@ -17,6 +17,8 @@
 ### Fixed
 - Don't apply defaults if we're editing an existing activity
   - Tip: If you want to "clear" one of your defaults (e.g. "details") just delete the text and save the empty field as your new default
+-  The Product, Project, and Activity dropdowns now use this extensions saving method (though they'll also trigger the native ones).
+  - Dev Note: I prefer not to overwrite existing functionality when possible, but the native saves seemed to occasionally just not work. (Also note: the first two fields actually save together - since they rely on each other's selection)
 
 ### Changed
 - Convert time spent to hours when editing an existing activity
