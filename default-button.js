@@ -106,6 +106,14 @@ $All('.default-button').forEach((el) => {
 
         el.classList.remove('saved');
         setTimeout(() => el.classList.add('saved'), 0);
+
+        // these two are inter-twined
+        if (key === 'product') {
+            $('[data-storage="project"]').click();
+        }
+        if (key === 'project') {
+            $('[data-storage="product"]').click();
+        }
     });
 });
 

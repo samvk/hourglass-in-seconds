@@ -44,6 +44,12 @@
     display: none;
 }
 
+#default-product-status,
+#default-project-status,
+#default-activity-status {
+    display: none;
+}
+
 [src="img/set-default.png"] {
     filter: hue-rotate(180deg) saturate(2); /* edit image to pink */
 
