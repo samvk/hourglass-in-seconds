@@ -3,8 +3,9 @@
 ## 1.6.0 – _2024-12-12_
 ### Added
 - Add support for templates
-  - Tip: If you want a template you can edit daily (e.g. same activity but different hours spent) - simply save and "+Add" it, then edit the new actual entry (by clicking the name of the activity in the table)
-  
+  - Tip: If you want a template you can edit daily (e.g. same activity but different hours spent) - simply save and "+Add" it, then edit the new activity entry (by clicking the name of the activity in the table)
+  - Tip: If you want a turn an existing activity entry into a template - simply edit the existing activity entry (by clicking the name of the activity in the table) then hit "Save as Template" (then "Save" again to exit Edit mode)
+
 - New keyboard shortcuts:
 
 | Command | Shortcut |
