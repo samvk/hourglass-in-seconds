@@ -1,18 +1,11 @@
 function addFakeTemplateRowNode({
     id = '',
-    product = 'Administration Out of Office',
-    activity = COMPANY_HOLIDAY_ACTIVITY,
-    details = '🏖️ Company Holiday',
+    productFriendlyName = 'Unknown product',
+    projectFriendlyName = 'Unknown project',
+    activityFriendlyName = 'Unknown activity',
+    details = '',
     time = 8
 } = {}) {
-    const productString = {
-        [ADMINISTRATION_PRODUCT]: 'Administration Out of Office',
-    }[product] ?? `Unknown product: ${product}`;
-    const activityString = {
-        [COMPANY_HOLIDAY_ACTIVITY]: 'Company Holiday',
-        [PTO_ACTIVITY]: 'PTO',
-    }[activity] ?? `Unknown activity: ${activity}`;
-
     const timeString = (() => {
         const d = new Date(0, 0);
         d.setMinutes(time * 60);
@@ -24,9 +17,9 @@ function addFakeTemplateRowNode({
             <td style='padding:4px;'>
                 <a class='daylink'>
                     <p>
-                        ${productString}
+                        ${productFriendlyName} ${projectFriendlyName}
                         <br>
-                        <span class='dayactivity fake-dayactivity'>${activityString}</span>
+                        <span class='dayactivity fake-dayactivity'>${activityFriendlyName}</span>
                     </p>
                 </a>
             </td>
@@ -144,11 +137,18 @@ const saveAsTemplateObserverCallback = () => {
     );
 
     $('#save-template-button').addEventListener('click', () => {
+        const $product = $('#product');
+        const $project = $('#project');
+        const $activity = $('#activity');
+
         const template = {
             id: crypto.randomUUID(),
-            product: $('#product').value,
-            project: $('#project').value,
-            activity: $('#activity').value,
+            productFriendlyName: $product.options[$product.selectedIndex].text,
+            projectFriendlyName: $project.options[$project.selectedIndex].text,
+            activityFriendlyName: $activity.options[$activity.selectedIndex].text,
+            product: $product.value,
+            project: $project.value,
+            activity: $activity.value,
             time: $('#time').value,
             'time-units': $('#time-units').value,
             details: $('#details').value,
@@ -157,6 +157,7 @@ const saveAsTemplateObserverCallback = () => {
         };
 
         if (!(template.product && template.project && template.activity && template.time && template.details)) {
+            alert('Please fill out all required fields ("Time Spend" and "Details").');
             return;
         }
 

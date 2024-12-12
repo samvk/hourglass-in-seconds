@@ -18,6 +18,9 @@ const templatesStorage = {
                 const defaultTemplates = [
                     {
                         id: '00000000-1111-1111-1111-000000000000',
+                        productFriendlyName: 'Administration',
+                        projectFriendlyName: 'Out of Office',
+                        activityFriendlyName: 'PTO',
                         product: ADMINISTRATION_PRODUCT,
                         project: OUT_OF_OFFICE_PROJECT,
                         activity: 14,
