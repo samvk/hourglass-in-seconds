@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.6.0 – _2024-12-12_
+### Added
+- Add support for templates
+  - Tip: If you want a template you can edit daily (e.g. same activity but different hours spent) - simply save and "+Add" it, then edit the new actual entry (by clicking the name of the activity in the table)
+
+### Fixed
+- Don't apply defaults if we're editing an existing activity
+
 ## 1.5.7 – _2024-12-11_
 ### Changed
 - Update corporate holidays for 2025
