@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.6.1 – _2024-12-18_
+### Fixed
+- Project dropdown should no longer be able to show an empty selection with the wrong options
+
 ## 1.6.0 – _2024-12-12_
 ### Added
 - Add support for templates
