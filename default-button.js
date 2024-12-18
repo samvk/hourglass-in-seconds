@@ -29,11 +29,15 @@ defaultsStorage.get((defaults) => {
 
     $('#time-units').value = 'h'; // always choose hours
 
-    if (defaults.product) {
+    if (defaults.product && defaults.project) {
         $('#product').value = defaults.product;
-    }
-    if (defaults.project) {
-        $('#project').value = defaults.project;
+        $('#product').dispatchEvent(new Event('change'));
+        // HACK-ish::force project to be set after product (dropdown loads late)
+        [50, 100, 250].forEach(timeout => {
+            setTimeout(() => {
+                $('#project').value = defaults.project;
+            }, timeout);
+        });
     }
     if (defaults.activity) {
         $('#activity').value = defaults.activity;
