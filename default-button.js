@@ -33,7 +33,7 @@ defaultsStorage.get((defaults) => {
         $('#product').value = defaults.product;
         $('#product').dispatchEvent(new Event('change'));
         // HACK-ish::force project to be set after product (dropdown loads late)
-        [50, 100, 250].forEach(timeout => {
+        [50, 100, 250, 500].forEach(timeout => {
             setTimeout(() => {
                 $('#project').value = defaults.project;
             }, timeout);
